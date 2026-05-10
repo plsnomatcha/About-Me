@@ -197,3 +197,33 @@ button:hover, .link:hover {
   }
 
 }
+
+/* FIX FOR CHROME / BROWSER */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.screen {
+  min-height: 100vh;
+  padding: 20px 10px;
+}
+
+.card {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Make sure text doesn't get too small on small screens */
+@media (max-width: 380px) {
+  .card {
+    padding: 25px 18px 20px;
+  }
+  
+  h1, h2 {
+    font-size: 17px;
+  }
+  
+  p {
+    font-size: 13px;
+  }
+}
