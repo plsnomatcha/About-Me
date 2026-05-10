@@ -1,0 +1,199 @@
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+
+  background: #f7f9fb;
+  color: #2c3e50;
+}
+
+/* STRIPED BG (soft + spaced) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,0.03),
+      rgba(0,0,0,0.03) 1px,
+      transparent 1px,
+      transparent 16px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.02),
+      rgba(0,0,0,0.02) 1px,
+      transparent 1px,
+      transparent 22px
+    );
+}
+
+/* SCREEN */
+.screen {
+  position: absolute;
+  inset: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  opacity: 0;
+  visibility: hidden;
+  
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  
+  transform: translateY(10px);
+  
+  z-index: 1;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+  
+  transform: translateY(0);
+}
+
+/* CARD */
+.card {
+  width: 85%;
+  max-width: 320px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* IMAGE (slight float) */
+.img {
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  
+  border-radius: 12px;
+  
+  position: relative;
+  top: 18px;
+  z-index: 3;
+}
+
+/* BOX */
+.box {
+  background: #ffffff;
+  border: 2px solid #9fb3c8;
+  border-radius: 14px;
+
+  padding: 35px 15px 20px 15px;
+
+  margin-top: -12px;
+  position: relative;
+  z-index: 2;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* TEXT */
+h1, h2, p, button, .link {
+  font-family: 'Press Start 2P', monospace;
+}
+
+h1, h2 {
+  font-size: 11px;
+}
+
+p {
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+/* BUTTON */
+button {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 8px;
+
+  background: #eaf1f7;
+  border: 2px solid #9fb3c8;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+/* HOVER GLOW */
+button:hover, .link:hover {
+  box-shadow: 0 0 8px rgba(120,160,200,0.6);
+}
+
+/* LINKS */
+.link {
+  margin: 10px 0;
+  font-size: 8px;
+  color: #3b6ea8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* BACK BUTTON */
+.back {
+  width: 40px;
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+  cursor: pointer;
+  z-index: 5;
+
+  display: none; /* hidden first */
+}
+
+.back.show {
+  display: block;
+}
+
+/* LOADING SCREEN */
+#loadingScreen {
+  position: fixed;
+  inset: 0;
+
+  background: #f7f9fb;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+#loadingScreen.show {
+  display: flex;
+}
+
+/* BOUNCING IMAGE */
+.loading-pic {
+  width: 120px;
+  height: 120px;
+
+  object-fit: cover;
+  border-radius: 12px;
+
+  animation: bounce 0.7s infinite;
+}
+
+@keyframes bounce {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
